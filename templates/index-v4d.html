@@ -142,7 +142,7 @@
             padding: 10px 20px;
             background-color: #3a3b3c;
             /* border: none; */
-            border-bottom: 2px solid #4a4b4c;
+            border-bottom: 3px solid #4a4b4c;
             color: white;
             border-radius: 12px 12px 0 0; /* Rounded top corners */
             margin-right: 5px;
@@ -493,8 +493,21 @@
             </div>
         </div>
     </div>
+    <script type="module" src="../static/scripts/initialize_firestore.js"></script>
+    <script type="module">
+        import { db } from '../static/scripts/initialize_firestore.js';
+        import { collection, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js"; 
 
-    <script>
+        const docRef = doc(db, "users", "investees");
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
+        }
+
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             
