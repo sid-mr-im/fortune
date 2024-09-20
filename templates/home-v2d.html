@@ -26,7 +26,7 @@
             justify-content: space-between;
             padding: 10px 20px;
             background-color: #2c2d30;
-            /* border-bottom: 1px solid #444; */
+            border-bottom: 1px solid #444;
         }
 
         .left-header {
@@ -35,15 +35,14 @@
         }
 
         .logo {
-            width: 25px; /* Adjust the width as needed */
+            width: 50px; /* Adjust the width as needed */
             height: auto;
-            margin-right: 5px; /* Add a small margin to separate the logo from the text */
+            margin-right: 10px; /* Add a small margin to separate the logo from the text */
         }
 
         .left-header h1 {
-            /* margin-left: 20px; */
+            margin-left: 20px;
             font-size: 24px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         .middle-header {
@@ -54,8 +53,7 @@
         .middle-header a {
             color: white;
             text-decoration: none;
-            font-size: 15px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 18px;
             padding: 10px;
             border-radius: 8px;
             transition: background-color 0.3s;
@@ -121,28 +119,23 @@
             flex: 3;
             background-color: #28292c;
             border-radius: 10px;
-            /* padding: 10px; */
-            overflow-y: auto; /* Allows the left section to be scrollable */
+            padding: 10px;
+            overflow-y: auto;
             margin-right: 15px;
             margin-bottom: 15px;
-            display: flex; /* Make it a flex container */
-            flex-direction: column; /* Align items vertically */
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         /* Tabs Styles - Similar to Browser Tabs */
         .tabs {
             display: flex;
-            margin: 10px 10px 0px 10px;
-            /* margin-bottom: 20px; */
-            /* border-bottom: 2px solid #3a3b3c; */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3a3b3c;
         }
 
         .tab-link {
             padding: 10px 20px;
             background-color: #3a3b3c;
-            /* border: none; */
-            border-bottom: 3px solid #4a4b4c;
+            border: none;
             color: white;
             border-radius: 12px 12px 0 0; /* Rounded top corners */
             margin-right: 5px;
@@ -150,83 +143,29 @@
             transition: background-color 0.3s ease;
             position: relative;
             top: 2px;
-            font-size: 12px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         .tab-link.active {
             background-color: #4a4b4c;
             color: white;
             border: none;
-            font-size: 16px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
         .tab-link:hover {
             background-color: #4a4b4c;
         }
 
-        /* Tabs Content */
-        .tabs-content {
-            /* background-color: #3a3b3c; */
-            background-color: #4a4b4c;
-            flex-grow: 1; /* Ensure the content area grows to fill the available space */
-            overflow-y: auto; /* Allows scrolling inside the content area */
-            /* display: none; /* Initially hidden */
-            padding: 10px;
-            gap: 20px;
-            /* margin-bottom: 15px; */
-            /* border-radius: 10px; */
-            /* display: none; /* Hidden by default */
-        
-            scrollbar-width: none; /* Firefox: hide scrollbar */
-            -ms-overflow-style: none;  /* IE and Edge: hide scrollbar */
-        }
-
-        .tabs-content::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera: hide scrollbar */
+        .tab-content {
+            background-color: #3a3b3c;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: none; /* Hidden by default */
         }
 
         /* Active tab is visible */
         .tab-content.active {
             display: block;
-            background-color: #4a4b4c;
-            /* flex-wrap: wrap; /* Cards will wrap around if there are many */
-        }
-
-        /* Card Holder and Sizes */
-        .card-holder {
-            background-color: #4a4b4c;
-            margin: 5px 5px 15px 5px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns in the holder */
-            grid-gap: 10px; /* Spacing between the cards */
-        }
-
-        .card {
-            background-color: rgb(163, 163, 163);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            height: 250px;
-            /* Default card size (3x) */
-            /* width: calc(100% - 10px); /* Full width */
-        }
-
-        .card.onex {
-            /* width: calc(33.333% - 10px); /* 1/3 of the total width */
-            grid-column: span 1;
-        }
-
-        .card.twox {
-            /* width: calc(66.666% - 10px); /* 2/3 of the total width */
-            grid-column: span 2;
-        }
-
-        .card.threex {
-            /* width: calc(100% - 10px); /* Full width */
-            grid-column: span 3;
         }
 
         /* Right Section with Conversation */
@@ -240,7 +179,8 @@
             padding: 10px;
             overflow-y: auto;
             margin-bottom: 15px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
         }
 
         /* Chat container layout */
@@ -421,11 +361,11 @@
             <img src="../static/assets/favicon.png" alt="Fortune Logo" class="logo">
             <h1>Fortune</h1>
         </div>
-        <div class="middle-header">
-            <a href="#">🗓️ Calendar</a>
-            <a href="#">🧮 Calculator</a>
-            <a href="#">📝 Notes</a>
-        </div>
+        <!-- <div class="middle-header">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+        </div> -->
         <div class="right-header">
             <div class="user-dropdown">
                 <!-- <img src="user-icon.png" alt="User Icon" class="user-icon"> -->
@@ -444,44 +384,27 @@
         <!-- Left Section with Browser-Like Tabs -->
         <div class="left-section">
             <div class="tabs">
-                <button class="tab-link active" onclick="openTab(event, 'Tab1')">Dashboard</button>
+                <button class="tab-link active" onclick="openTab(event, 'Tab1')">Home</button>
                 <button class="tab-link" onclick="openTab(event, 'Tab2')">Cashflow</button>
                 <button class="tab-link" onclick="openTab(event, 'Tab3')">Credit Score</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab4')">Loan Utilization</button>
             </div>
-            <div class="tabs-content">
-                <div id="Tab1" class="tab-content active" style="display: block">
-                    <div class="card-holder">
-                        <div class="card threex">Card 3 - Dashboard</div>
-                    </div>
-                    <div class="card-holder">
-                        <div class="card threex">Card 2 - Dashboard</div>
-                    </div>
-                    <div class="card-holder">
-                        <div class="card threex">Card 1 - Dashboard</div>
-                    </div>
-                </div>
-                <div id="Tab2" class="tab-content" style="display:none">
-                    <div class="card-holder">
-                        <div class="card twox">Card 2 - Cashflow</div>
-                        <div class="card onex">Card 1 - Cashflow</div>
-                    </div>
-                    <div class="card-holder">
-                        <div class="card onex">Card 1 - Cashflow</div>
-                        <div class="card twox">Card 2 - Cashflow</div>
-                    </div>
-                </div>
-                <div id="Tab3" class="tab-content" style="display:none">
-                    <div class="card-holder">
-                        <div class="card onex">Card 1 - Credit Score</div>
-                        <div class="card onex">Card 1 - Credit Score</div>
-                        <div class="card onex">Card 1 - Credit Score</div>
-                    </div>
-                </div>
+            <div id="Tab1" class="tab-content active">
+                <div class="card">Contents for Tab 1</div>
+            </div>
+            <div id="Tab2" class="tab-content" style="display:none">
+                <div class="card">Contents for Tab 2</div>
+            </div>
+            <div id="Tab3" class="tab-content" style="display:none">
+                <div class="card">Contents for Tab 3</div>
+            </div>
+            <div id="Tab4" class="tab-content" style="display:none">
+                <div class="card">Contents for Tab 4</div>
             </div>
         </div>
 
         <!-- Right Section with Conversation -->
-        <div class="right-section">Fortuner ✨ (Preview)
+        <div class="right-section">Fortuner ✨ (Beta)
             <div class="conversation-area">
                 <div id="message-display"></div>
             </div>
@@ -493,8 +416,7 @@
             </div>
         </div>
     </div>
-    <script type="module" src="../static/scripts/initialize_firestore.js"></script>
-    <script type="module" src="../static/scripts/rwops_firestore.js"></script>
+
     <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
@@ -517,42 +439,6 @@
             document.getElementById(tabName).classList.add('active');
             evt.currentTarget.className += " active";
         }
-        
-        // Dummy message database
-        // const dummyDatabase = [
-        //     { text: "Hello! I'm Phi, an AI digital assistant here to help you. What can I do for you today?", sent: false, name: "Phi-3" },
-        // ];
-
-        var llmMessages = [];        
-
-        // Load existing messages
-        function loadMessagesFromDatabase() {
-            if (window.llmMessages != null) {
-                llmMessages = window.llmMessages;
-            } else {
-                llmMessages = [{text: "An error occured when fetching messages from database. Please try reloading the site or contacting the support.", sent: false, name: "AI"}]
-            }
-
-            const messageDisplay = document.getElementById("message-display");
-            llmMessages.forEach((message) => {
-                const messageElement = createMessageElement(message.text, message.sent, message.name);
-                messageDisplay.appendChild(messageElement);
-            });
-
-            // messageDisplay.scrollTop = messageDisplay.scrollHeight;
-
-            // Scroll to the bottom after loading messages
-            scrollToBottom();
-        }
-
-
-        // Load messages on page load
-        // window.onload = async function () {
-        //     await loadMessagesFromDatabase();
-        // };
-        setTimeout(() => {
-            loadMessagesFromDatabase();
-            }, 5000);
 
         // Automatically expand the textarea as the user types
         function autoExpand(field) {
@@ -565,9 +451,20 @@
                 + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
             field.style.height = height + 'px';
         }
+        
+        // Dummy message database
+        const dummyDatabase = [
+            { text: "Hello, how can I assist you?", sent: false, name: "AI" },
+            { text: "I need help with a project.", sent: true, name: "You" },
+        ];
+
+        // Load messages on page load
+        window.onload = function () {
+            loadMessagesFromDatabase();
+        };
 
         // Function to send message
-        async function sendMessage() {
+        function sendMessage() {
             const messageInput = document.getElementById("message-input");
             const messageText = messageInput.value.trim();
 
@@ -580,87 +477,61 @@
                 const userMessageElement = createMessageElement(messageText, true, "You");
                 messageDisplay.appendChild(userMessageElement);
 
-                // Typing animation
-                const typingIndicator = document.createElement("div");
-                typingIndicator.classList.add("message");
-                const typingAnimation = document.createElement("span");
-                typingAnimation.classList.add("typing-animation");
-                typingIndicator.appendChild(typingAnimation);
-                messageDisplay.appendChild(typingIndicator);
-
                 // messageDisplay.scrollTop = messageDisplay.scrollHeight;
 
                 // Scroll to the bottom
                 scrollToBottom();
-            
-                // Get assistant response
-                const responseText = await getLLMResponse(messageText);
-                messageDisplay.removeChild(typingIndicator);
-                const llmMessageElement = createMessageElement(responseText, false, "Phi-3");
-                messageDisplay.appendChild(llmMessageElement);
-                llmMessages.push({ text: responseText, sent: false , name: "Phi-3"});
 
-                // Put a response after 5 second
-                // setTimeout(() => {
-                //     messageDisplay.removeChild(typingIndicator);
-                //     const llmMessageElement = createMessageElement(responseText, false, "Phi-3");
-                //     messageDisplay.appendChild(llmMessageElement);
-
-                //     // messageDisplay.scrollTop = messageDisplay.scrollHeight;
-
-                //     // Scroll to the bottom after adding the message
-                //     scrollToBottom();
-
-                //     dummyDatabase.push({ text: responseText, sent: false , name: "Phi-3"});
-                // }, 5000);
+                // Simulate assistant response
+                simulateLLMResponse();
             }
         }
 
-        
-        // Send message on pressing "Enter" key
-        function sendMessageOnEnter(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault();
-                sendMessage();
-            }
-        }
-      
-        // Define the API endpoint and the message to send
-        const apiUrl = 'https://cc56-35-247-151-154.ngrok-free.app/generate'; // Replace with your actual API URL
-
-        // Get response from assistant (LLM)
-        async function getLLMResponse(messageText) {
+        // Load existing messages
+        function loadMessagesFromDatabase() {
             const messageDisplay = document.getElementById("message-display");
-            const llmResponse = null;
+            dummyDatabase.forEach((message) => {
+                const messageElement = createMessageElement(message.text, message.sent, message.name);
+                messageDisplay.appendChild(messageElement);
+            });
+
+            // messageDisplay.scrollTop = messageDisplay.scrollHeight;
+
+            // Scroll to the bottom after loading messages
+            scrollToBottom();
+        }
+
+        // Simulate response from assistant (LLM)
+        function simulateLLMResponse() {
+            const messageDisplay = document.getElementById("message-display");
+
+            // Typing animation
+            const typingIndicator = document.createElement("div");
+            typingIndicator.classList.add("message");
+            const typingAnimation = document.createElement("span");
+            typingAnimation.classList.add("typing-animation");
+            typingIndicator.appendChild(typingAnimation);
+            messageDisplay.appendChild(typingIndicator);
 
             // messageDisplay.scrollTop = messageDisplay.scrollHeight;
 
             // Scroll to the bottom
             scrollToBottom();
 
-            // console.log(messageText)
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message: messageText }),
-                });
+            // Simulate a response after 1 second
+            setTimeout(() => {
+                messageDisplay.removeChild(typingIndicator);
+                const llmResponse = "Here's a detailed breakdown of OpenType font files...";
+                const llmMessageElement = createMessageElement(llmResponse, false, "AI");
+                messageDisplay.appendChild(llmMessageElement);
 
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
+                // messageDisplay.scrollTop = messageDisplay.scrollHeight;
 
-                // Parse and handle the JSON response
-                const data = await response.json();
-                console.log('Response from API:', data);
-                return data
+                // Scroll to the bottom after adding the message
+                // scrollToBottom();
 
-            } catch (error) {
-                console.error('Error:', error);
-            }
+                dummyDatabase.push({ text: llmResponse, sent: false , name: "AI"});
+            }, 1000);
         }
 
         // Create a message element with avatars and without boxes
@@ -695,12 +566,13 @@
             return messageDiv;
         }
 
-        // document.getElementById("message-input").addEventListener("keypress", function (e) {
-        //     if (e.key === "Enter" && !e.shiftKey) {
-        //         e.preventDefault();
-        //         sendMessage();
-        //     }
-        // });
+        // Send message on pressing "Enter" key
+        document.getElementById("message-input").addEventListener("keypress", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
 
         // Scroll to the bottom of the message display area
         function scrollToBottom() {

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortune</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #202124;
+            color: white;
+            overflow: hidden; /* Disable scrollbars */
+        }
+
+        /* Top Navigation Bar */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #2c2d30;
+            border-bottom: 1px solid #444;
+        }
+
+        .left-header h1 {
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        .middle-header {
+            display: flex;
+            gap: 20px;
+        }
+
+        .middle-header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .middle-header a:hover {
+            background-color: #444;
+        }
+
+        .right-header {
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #333;
+            min-width: 160px;
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #444;
+        }
+
+        .user-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            height: calc(100vh - 50px); /* Adjust for top-nav height */
+            overflow: hidden;
+        }
+
+        /* Left Section with Browser-Like Tabs */
+        .left-section {
+            flex: 3;
+            background-color: #28292c;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            margin-right: 20px;
+        }
+
+        /* Tabs Styles - Similar to Browser Tabs */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3a3b3c;
+        }
+
+        .tab-link {
+            padding: 10px 20px;
+            background-color: #3a3b3c;
+            border: none;
+            color: white;
+            border-radius: 12px 12px 0 0; /* Rounded top corners */
+            margin-right: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative;
+            top: 2px;
+        }
+
+        .tab-link.active {
+            background-color: #4a4b4c;
+            color: white;
+        }
+
+        .tab-link:hover {
+            background-color: #4a4b4c;
+        }
+
+        .tab-content {
+            background-color: #3a3b3c;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            display: none; /* Hidden by default */
+        }
+
+        /* Active tab is visible */
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Right Section with Conversation */
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #28292c;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .conversation-area {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin-bottom: 15px;
+        }
+
+        .message {
+            background-color: #4a4b4c;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            background-color: #5a5b5c;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #3a3b3c;
+            border-radius: 10px;
+            padding: 10px;
+            position: relative;
+        }
+
+        textarea {
+            background: none;
+            border: none;
+            color: white;
+            flex-grow: 1;
+            font-size: 16px;
+            resize: none;
+            outline: none;
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        button {
+            background-color: #4a4b4c;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #5a5b5c;
+        }
+
+        /* Dynamic Message Input Expansion */
+        textarea[rows] {
+            min-height: 20px;
+            max-height: 100px;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1200px) {
+            .dashboard {
+                flex-direction: column;
+            }
+
+            .left-section, .right-section {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="left-header">
+            <h1>Fortune</h1>
+        </div>
+        <div class="middle-header">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+        </div>
+        <div class="right-header">
+            <div class="user-dropdown">
+                <!-- <img src="user-icon.png" alt="User Icon" class="user-icon"> -->
+                <button class="user-icon">&#128511;</button>
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard Layout -->
+    <div class="dashboard">
+        <!-- Left Section with Browser-Like Tabs -->
+        <div class="left-section">
+            <div class="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'Tab1')">Cashflow</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab2')">Credit Score</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab3')">Loan Utilization</button>
+            </div>
+            <div id="Tab1" class="tab-content active">
+                <div class="card">Contents for Tab 1</div>
+            </div>
+            <div id="Tab2" class="tab-content" style="display:none">
+                <div class="card">Contents for Tab 2</div>
+            </div>
+            <div id="Tab3" class="tab-content" style="display:none">
+                <div class="card">Contents for Tab 3</div>
+            </div>
+        </div>
+
+        <!-- Right Section with Conversation -->
+        <div class="right-section">
+            <div class="conversation-area" id="conversation-area">
+                <!-- Dummy messages loaded from a database -->
+            </div>
+            <div class="search-bar">
+                <textarea id="message-input" rows="1" placeholder="Type your message..." oninput="autoExpand(this)"></textarea>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove('active');
+            }
+            
+            // Remove 'active' class from all tab links
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab and add 'active' class to the tab link
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.className += " active";
+        }
+        
+        // Dummy database (simulated in-memory)
+        const dummyDatabase = [
+            { text: "Hello, how can I help you?", sent: false },
+            { text: "Can you tell me the weather today?", sent: true },
+            { text: "Sure! The weather is sunny with a high of 30°C.", sent: false },
+        ];
+
+        // Load initial messages from the dummy database
+        window.onload = function() {
+            const conversationArea = document.getElementById("conversation-area");
+            dummyDatabase.forEach(message => {
+                const messageDiv = document.createElement("div");
+                messageDiv.classList.add("message");
+                if (message.sent) {
+                    messageDiv.classList.add("sent");
+                }
+                messageDiv.textContent = message.text;
+                conversationArea.appendChild(messageDiv);
+            });
+        }
+
+        // Automatically expand the textarea as the user types
+        function autoExpand(field) {
+            field.style.height = 'inherit';
+            const computed = window.getComputedStyle(field);
+            const height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+                        + parseInt(computed.getPropertyValue('padding-top'), 10)
+                        + field.scrollHeight
+                        + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+                        + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+            field.style.height = height + 'px';
+        }
+
+        // Simulate sending message to dummy API and storing it in the dummy database
+        function sendMessage() {
+            const messageInput = document.getElementById("message-input");
+            const messageText = messageInput.value.trim();
+
+            if (messageText.length === 0) {
+                return; // Prevent
+            }
+        }
+    </script>
+</body>
+</html>

@@ -26,8 +26,8 @@ const analytics = getAnalytics(app);
 // console.log(app)
 
 // Initialize Firestore and make it global
-const db = getFirestore(app); 
-// window.db = getFirestore(app); 
+// window.db = getFirestore(app);
 // console.log(window.db)
 
+const db = getFirestore(app); 
 export { db }
