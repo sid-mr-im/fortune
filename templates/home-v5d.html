@@ -558,7 +558,7 @@
         </div>
 
         <!-- Right Section with Conversation -->
-        <div class="right-section">Fortuner ✨ (Preview)
+        <div class="right-section">Gemini's Fortuner ✨ (Preview)
             <div class="conversation-area">
                 <div id="message-display"></div>
             </div>
@@ -632,7 +632,7 @@
             }
 
             // Handle tab switching based on "to"
-            cardElement.addEventListener('click', () => openTab(event, tab_maps[card.to]));
+            cardElement.addEventListener('click', () => openTab(tab_maps[card.to]));
 
             return cardElement;
         }
@@ -640,85 +640,50 @@
         // Function to generate card-holder groups based on the specified conditions
         function generateCards(cards) {
             const container = document.querySelector('.tab-content');
-            let currentHolder = document.createElement('div');
-            currentHolder.classList.add('card-holder');
-            let cardCount = 0;
-            let currentHolderSize = 0;
+            let cardHolder = []; // Store the current card-holder set
+            let leftOverCardHolder = []; // Store the current card-holder set
+            let currentHolderSize = 0; // Track size of the current card-holder
 
             cards.forEach(card => {
                 let cardSize = card.size === 'onex' ? 1 : card.size === 'twox' ? 2 : 3;
 
-                // If adding the current card would break the card-holder condition, create a new card-holder
-                if (
-                    (cardCount >= 3 && cardSize === 1) || // Can't have more than 3 `1x` cards in a row
-                    (cardCount >= 2 && cardSize === 2) || // Can't have more than 1 `2x` and 1 `1x` card in a row
-                    (cardCount >= 1 && cardSize === 3) // Can't have more than 1 `3x` card in a row
-                ) {
-                    // Append current card-holder to container
-                    container.appendChild(currentHolder);
+                // If adding this card will complete the holder or exceed its size, process the current card-holder
+                if (currentHolderSize + cardSize === 3) {
+                    cardHolder.push(card);
+                    appendCardHolder(container, cardHolder);
 
                     // Start a new card-holder
-                    currentHolder = document.createElement('div');
-                    currentHolder.classList.add('card-holder');
-                    cardCount = 0;
+                    cardHolder = [];
                     currentHolderSize = 0;
-                }
-
-                // Create and append the card to the current card-holder
-                currentHolder.appendChild(createCard(card));
-
-                // Update card count and current holder size
-                cardCount++;
-                currentHolderSize += cardSize;
-
-                // If we reached the max card holder size (3x1, or 1x + 2x, or just 3x), append the holder and reset
-                if (
-                    (currentHolderSize === 3) || // 3 `onex` cards
-                    (cardCount === 2 && currentHolderSize === 3) || // 1 `twox` + 1 `onex`
-                    (cardCount === 1 && currentHolderSize === 3) // 1 `threex` card
-                ) {
-                    container.appendChild(currentHolder);
-
-                    // Start a new card-holder for the next set
-                    currentHolder = document.createElement('div');
-                    currentHolder.classList.add('card-holder');
-                    cardCount = 0;
-                    currentHolderSize = 0;
+                } else if (currentHolderSize + cardSize < 3) {
+                    // Add the current card to the card-holder
+                    cardHolder.push(card);
+                    currentHolderSize += cardSize;
                 }
             });
 
-            // If there's any remaining cards in the last holder, append it
-            if (currentHolder.childElementCount > 0) {
-                container.appendChild(currentHolder);
+            // If there's any leftover cards in the last holder, append it
+            if (cardHolder.length > 0) {
+                appendCardHolder(container, cardHolder);
             }
         }
 
-        // Function to switch tabs based on the "to" value
-        function switchTab(tabName) {
-            // Your logic to switch tabs (cashflow, credit, dashboard, etc.)
-            console.log("Switching to tab:", tabName);
-            
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-                tabcontent[i].classList.remove('active');
-            }
+        // Function to append a card-holder to the container
+        function appendCardHolder(container, cardHolder) {
+            const holderElement = document.createElement('div');
+            holderElement.classList.add('card-holder');
 
-            tablinks = document.getElementsByClassName("tab-link");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
+            // Create and append cards inside this holder
+            cardHolder.forEach(card => {
+                const cardElement = createCard(card);
+                holderElement.appendChild(cardElement);
+            });
 
-            // Show the current tab
-            document.getElementById(tabName).style.display = "block";
-            document.getElementById(tabName).classList.add('active');
+            container.appendChild(holderElement);
         }
 
         // Call the function to generate cards on page load
         generateCards(cardData);
-
-
 
         // Automatically expand the textarea as the user types
         function autoExpand(field) {
