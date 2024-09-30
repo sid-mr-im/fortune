@@ -30,7 +30,8 @@ def home():
     pass
 
 @app.route('/askgemini', methods=['POST'])
-@cross_origin(origin='localhost:3000',headers=['Content-Type','application/json'])
+# @cross_origin(origin='localhost:3000',headers=['Content-Type','application/json'])
+@cross_origin(origin='*',headers=['Content-Type','application/json'])
 def askgemini():
     data = request.get_json()
     query = data.get('message', '')

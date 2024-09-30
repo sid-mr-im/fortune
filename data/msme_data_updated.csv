@@ -1,0 +1,11 @@
+Company,Industry,Year,Quarter,Revenue (in $M),Profit/Loss (in $M),EBITDA (in $M),Debt (in $M),"Loan Utilization(Admin, Sales, Purchases)",AI Recommendations(Efficiency Improvements)
+Company A,Retail,2023,Q1,520,50,80,200,"$10M Admin, $15M Sales, $25M Purchases",Reduce operational costs by automating logistics
+Company A,Retail,2023,Q2,530,55,85,210,"$11M Admin, $16M Sales, $26M Purchases",Improve inventory turnover by 5%
+Company A,Retail,2023,Q3,540,60,90,215,"$12M Admin, $18M Sales, $27M Purchases",Optimize e-commerce operations
+Company B,Textile,2023,Q1,410,30,60,150,"$12M Admin, $18M Sales, $20M Purchases",Invest in technology to optimize supply chain
+Company B,Textile,2023,Q2,420,28,58,155,"$13M Admin, $17M Sales, $21M Purchases",Increase digital adoption in distribution
+Company B,Textile,2023,Q3,430,32,62,160,"$14M Admin, $19M Sales, $22M Purchases",Improve cost control through lean manufacturing
+Company C,Automotive,2023,Q1,800,100,120,350,"$20M Admin, $25M Sales, $30M Purchases",Diversify supply base to lower material costs
+Company C,Automotive,2023,Q2,820,110,130,360,"$22M Admin, $27M Sales, $32M Purchases",Enhance R&D for new vehicle models
+Company D,Real Estate,2023,Q1,600,75,90,400,"$15M Admin, $30M Sales, $35M Purchases",Invest in digital marketing for property sales
+Company D,Real Estate,2023,Q2,620,80,95,410,"$17M Admin, $32M Sales, $36M Purchases",Introduce green building technology
