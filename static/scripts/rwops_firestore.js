@@ -64,6 +64,7 @@ setTimeout(() => {
 
 // Define the API endpoint and the message to send
 // const apiUrl = 'https://cc56-35-247-151-154.ngrok-free.app/generate'; // Replace with your actual API URL #hosted Gemini
+// const apiUrl = 'http://127.0.0.1:3000/askgemini'; // Replace with your actual API URL  #Google's Gemini
 const apiUrl = '/askgemini'; // Replace with your actual API URL  #Google's Gemini
 
 // Get response from assistant (LLM)

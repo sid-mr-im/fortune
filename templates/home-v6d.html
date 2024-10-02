@@ -15,7 +15,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #202124;
+            background: linear-gradient(135deg, #1e0a3c, #3a0f50);
             color: white;
             overflow: hidden; /* Disable scrollbars */
         }
@@ -25,7 +25,7 @@
             display: flex;
             justify-content: space-between;
             padding: 10px 20px;
-            background-color: #2c2d30;
+            background: linear-gradient(135deg, #1e0a3c, #3a0f50);
             /* border-bottom: 1px solid #444; */
         }
 
@@ -62,7 +62,7 @@
         }
 
         .middle-header a:hover {
-            background-color: #444;
+            background-color: #919191;
         }
 
         .right-header {
@@ -86,7 +86,7 @@
             display: none;
             position: absolute;
             right: 0;
-            background-color: #333;
+            background: linear-gradient(135deg, #1e0a3c, #3a0f50);
             min-width: 160px;
             border-radius: 8px;
             z-index: 1;
@@ -100,7 +100,7 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #444;
+            background-color: #838383;
         }
 
         .user-dropdown:hover .dropdown-content {
@@ -119,7 +119,7 @@
         /* Left Section with Browser-Like Tabs */
         .left-section {
             flex: 3;
-            background-color: #28292c;
+            background: linear-gradient(135deg, #1e0a3c, #3a0f50);
             border-radius: 10px;
             /* padding: 10px; */
             overflow-y: auto; /* Allows the left section to be scrollable */
@@ -140,9 +140,9 @@
 
         .tab-link {
             padding: 10px 20px;
-            background-color: #3a3b3c;
+            background-color: #2b639b;
             /* border: none; */
-            border-bottom: 3px solid #4a4b4c;
+            border-bottom: 3px solid #183553;
             color: white;
             border-radius: 12px 12px 0 0; /* Rounded top corners */
             margin-right: 5px;
@@ -155,7 +155,7 @@
         }
 
         .tab-link.active {
-            background-color: #4a4b4c;
+            background-color: #183553;
             color: white;
             border: none;
             font-size: 16px;
@@ -169,12 +169,13 @@
         /* Tabs Content */
         .tabs-content {
             /* background-color: #3a3b3c; */
-            background-color: #4a4b4c;
+            background-color: #183553;
             flex-grow: 1; /* Ensure the content area grows to fill the available space */
             overflow-y: auto; /* Allows scrolling inside the content area */
             /* display: none; /* Initially hidden */
             padding: 10px;
             gap: 20px;
+            text-align: center;
             /* margin-bottom: 15px; */
             /* border-radius: 10px; */
             /* display: none; /* Hidden by default */
@@ -190,13 +191,13 @@
         /* Active tab is visible */
         .tab-content.active {
             display: block;
-            background-color: #4a4b4c;
+            background-color: #183553;
             /* flex-wrap: wrap; /* Cards will wrap around if there are many */
         }
 
         /* Card Holder and Sizes */
         .card-holder {
-            background-color: #4a4b4c;
+            background-color: #183553;
             margin: 5px 5px 15px 5px;
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns in the holder */
@@ -205,7 +206,8 @@
 
         /* Card Sizes */
         .card {
-            background-color: rgb(163, 163, 163);
+            background-color: rgb(72, 72, 72);
+            /* background-color: #4a4b4c; */
             color: white;
             /* padding: 20px; */
             border-radius: 10px;
@@ -225,14 +227,14 @@
 
         .card.onex img {
             width: 100%;
-            height: 70%;
-            object-fit: cover;
+            height: 90%;
+            object-fit: contain;
             border-radius: 5px;
         }
 
         .card.onex .text {
             padding: 10px;
-            height: 30%;
+            height: 10%;
             text-align: center;
         }
 
@@ -242,17 +244,19 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            background-color: whitesmoke;
         }
 
         .card.twox img {
-            width: 70%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; /* changed from 70% */
+            height: 90%;
+            object-fit: contain;
             border-radius: 5px;
         }
 
         .card.twox .text {
-            width: 30%;
+            /* width: 30%; */
+            height: 10%; /* added */
             padding: 10px;
             text-align: left;
         }
@@ -266,14 +270,14 @@
         }
 
         .card.threex img {
-            width: 70%;
+            width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 5px;
         }
 
         .card.threex .text {
-            width: 30%;
+            width: 0%;
             padding: 10px;
             text-align: left;
         }
@@ -308,12 +312,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            background-color: #28292c;
+            background-color: #183553;
             border-radius: 10px;
             padding: 10px;
             overflow-y: auto;
             margin-bottom: 15px;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
         }
 
         .conversation-area {
@@ -388,7 +393,7 @@
         .search-bar {
             display: flex;
             align-items: center;
-            background-color: #3a3b3c;
+            background-color: #142e48;
             border-radius: 10px;
             padding: 10px;
         }
@@ -510,6 +515,8 @@
                 <button class="tab-link active" onclick="openTab(event, 'Tab1')">Dashboard</button>
                 <button class="tab-link" onclick="openTab(event, 'Tab2')">Cashflow</button>
                 <button class="tab-link" onclick="openTab(event, 'Tab3')">Credit Score</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab4')">Funding Applications</button>
+                <button class="tab-link" onclick="openTab(event, 'Tab5')">Investment Requests</button>
             </div>
             <div class="tabs-content">
                 <div id="Tab1" class="tab-content active" style="display: block">
@@ -529,26 +536,30 @@
                 </div>
                 <div id="Tab2" class="tab-content" style="display:none">
                     <div class="card-holder">
-                        <div class="card twox">Card 2 - Cashflow</div>
-                        <div class="card onex">Card 1 - Cashflow</div>
-                    </div>
-                    <div class="card-holder">
-                        <div class="card onex">Card 1 - Cashflow</div>
-                        <div class="card onex">Card 1 - Cashflow</div>
-                        <div class="card onex">Card 1 - Cashflow</div>
+                        <div class="card threex">
+                            <img src="../static/assets/cashflow-chart-q1.png">
+                            <div class="text">Quarter 1 - 2024</div>
+                        </div>
+                        <div class="card threex">
+                            <img src="../static/assets/cashflow-chart-q2.png">
+                            <div class="text">Quarter 2 - 2024</div>
+                        </div>
+                        <div class="card threex">
+                            <img src="../static/assets/cashflow-chart-q3.png">
+                            <div class="text">Quarter 3 - 2024</div>
+                        </div>
                     </div>
                 </div>
                 <div id="Tab3" class="tab-content" style="display:none">
-                    <div class="card-holder">
-                        <div class="card twox">Card 1 - Credit Score</div>
-                        <div class="card onex">Card 1 - Credit Score</div>
-                    </div>
+                    Please visit OCEN section for an updated credit details.
                 </div>
+                <div id="Tab4" class="tab-content" style="display:none">Not applied for funding rounds.</div>
+                <div id="Tab5" class="tab-content" style="display:none">No received requests for investments.</div>
             </div>
         </div>
 
         <!-- Right Section with Conversation -->
-        <div class="right-section">Fortuner (Powered by Gemini) ✨
+        <div class="right-section">Gemini (by Google) ✨
             <div class="conversation-area">
                 <div id="message-display"></div>
             </div>
@@ -561,6 +572,8 @@
     </div>
     <script type="module" src="../static/scripts/initialize_firestore.js"></script>
     <script type="module" src="../static/scripts/rwops_firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
     <script>
 
         const tab_maps = {
@@ -593,12 +606,11 @@
 
         // Sample card data
         const cardData = [
+            { picture: "../static/assets/chart-1727880765755.png", size: "twox", text: "none", to: "none", button: "none" },
+            { picture: "../static/assets/cashflow-chart-q3.png", size: "onex", text: "Cashflow - Current Quarter 3", to: "none", button: "none" },
             { picture: "https://api.startupindia.gov.in/sih/api/file/ams/banner/logo?fileName=1ef6ec00-d7cf-4c31-bdc2-6ede38abc8dd.jpg", size: "onex", text: "Startups by Tetra Pak", to: "https://www.startupindia.gov.in/content/sih/en/ams-application/accelerator-program.html?applicationId=66b5e043e4b0c2c2d5d2352b", button: "none" },
-            { picture: "https://via.placeholder.com/300x150", size: "twox", text: "Card 2x Text", to: "credit", button: "Details" },
-            { picture: "https://via.placeholder.com/300x150", size: "onex", text: "Card 1x Text", to: "dashboard", button: "none" },
-            { picture: "https://via.placeholder.com/300x150", size: "onex", text: "Card 1x Text", to: "cashflow", button: "More Info" },
-            { picture: "https://via.placeholder.com/300x150", size: "threex", text: "Card 3x Text", to: "credit", button: "none" },
-            { picture: "https://via.placeholder.com/300x150", size: "onex", text: "Card 1x Text", to: "dashboard", button: "Details" },
+            { picture: "https://seedfund.startupindia.gov.in/static/media/banner-image.29828ac7.svg", size: "onex", text: "Startup India Seed Fund Scheme", to: "https://seedfund.startupindia.gov.in/", button: "none" },
+            { picture: "https://maarg-api.startupindia.gov.in/mentorship-app/v1/document/bucket/ii-nmp-maarg-static-files/s3fs/s3fs-public/2022-06/MentorshipHomeNew03.png?VersionId=M.zq0CIYwUIu8jEV3khcM8o8KsqlU4gU", size: "onex", text: "MAARG Mentorship by Government", to: "https://maarg.startupindia.gov.in/", button: "none" },
         ];
 
         // Function to create a card element
@@ -607,10 +619,16 @@
             cardElement.classList.add('card', card.size);
 
             // Add picture and text
+            if (card.text === 'none') {
+                cardElement.innerHTML = `
+                <img src="${card.picture}" alt="Card Image">
+            `;
+            } else {
             cardElement.innerHTML = `
                 <img src="${card.picture}" alt="Card Image">
                 <div class="text">${card.text}</div>
             `;
+            }
 
             // Add button if applicable
             if (card.button !== 'none') {
@@ -621,7 +639,8 @@
             }
 
             // Handle tab switching based on "to"
-            cardElement.addEventListener('click', () => openTab(tab_maps[card.to]));
+            // cardElement.addEventListener('click', () => openTab(tab_maps[card.to]));
+            cardElement.addEventListener('click', () => window.open(card.to, "_blank"));
 
             return cardElement;
         }
