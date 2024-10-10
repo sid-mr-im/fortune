@@ -43,7 +43,8 @@ def home():
     # return render_template('home-v3d.html') #phi-3 api integrated, fixed tabs & tab content
     # return render_template('home-v4d.html') #middle header added, cards added, database integrated, read/write operations added
     # return render_template('home-v5d.html') #right section fully functional, google's gemini api integrated
-    return render_template('home-v6d.html') #left sectionfully functional
+    # return render_template('home-v6d.html') #left section fully functional
+    return render_template('home-v7d.html') #cards revamp, phase2 finetunings
 
 @app.route('/askgemini', methods=['POST'])
 # @cross_origin(origin='localhost:3000',headers=['Content-Type','application/json'])
