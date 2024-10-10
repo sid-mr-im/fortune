@@ -8,11 +8,14 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/askgemini": {"origins": "http://localhost:3000" "*"}})
 
-genai.configure(api_key='GEMINI_KEY')
-model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")
-sample_file = genai.upload_file(path="data/msme_a_data.csv", display_name="MSME data")
-# sample_file = genai.upload_file(path="data/msme_data.csv", display_name="MSME data")
-
+try:
+    genai.configure(api_key='GEMINI_KEY')
+    model = genai.GenerativeModel(model_name="models/gemini-1.5-flash")
+    sample_file = genai.upload_file(path="data/msme_a_data.csv", display_name="MSME data")
+    # sample_file = genai.upload_file(path="data/msme_data.csv", display_name="MSME data")
+except:
+    pass
+    
 @app.route('/')
 def index():
     # return render_template('temp.html')
